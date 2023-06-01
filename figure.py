@@ -14,37 +14,38 @@ class line:
     해당 변수를 수정하고 접근하기 위해
     set_length와 get_length를 제공합니다.
     """
-    __length = 0
+    __width = 0
+    __height = 0
 
-    def __init__(self, length):
-        self.__length = length
+    def __init__(self, width, height):
+        self.__width = width
+        self.__height = height
     
-    def set_length(self, length):
-        self.__length = length
+    def set_length(self, width, height):
+        self.__width = width
+        self.__height = height
     
     def get_length(self):
-        return self.__length
+        return self.__width, self.__height
 
-def area_square(length):
+def area_rectangle(width, height):
     """
-    길이를 입력받아 정사각형 넓이를 구하는 함수입니다.
-    Args: length(int or float) - 한 변의 길이
-    Return: int or float - 정사각형의 넓이
+    width와 height를 매개변수로받아, 𝑤𝑖𝑑𝑡ℎ×ℎ𝑒𝑖𝑔ℎ𝑡의 직사각형의 넓이를 반환한다.
     """
-    return length * length
+    if width <= 0 or height <= 0: return ValueError
+    return width * height
 
-def area_circle(length):
+def area_ellipse(width, height):
     """
-    길이를 입력받아 원의 넓이를 구하는 함수입니다.
-    Args: length(int or float) - 반지름의 길이
-    Return: int or float - 원의 넓이
+    width와 height를 매개변수로 받아, width × ℎ𝑒𝑖𝑔ℎ𝑡 × 𝜋 의 타원의 넓이를 반환한다.
+    𝜋는 math 모듈의 math.pi를 사용한다.
     """
-    return length * length * math.pi
+    if width <= 0 or height <= 0: return ValueError
+    return width * height * math.pi
 
-def area_regular_triangle(length):
+def area_right_triangle(width, height):
     """
-    길이를 입력받아 정삼각형의 넓이를 구하는 함수입니다.
-    Args: length(int or float) - 한 변의 길이
-    Return: int or float - 정삼각형의 넓이
+    width와 height를 매개변수로 받아, 𝑤𝑖𝑑𝑡ℎ×ℎ𝑒𝑖𝑔ℎ𝑡/2의 직각삼각형의 넓이를 반환한다.
     """
-    return length * length * math.sqrt(3) / 4
+    if width <= 0 or height <= 0: return ValueError
+    return width * height / 2
